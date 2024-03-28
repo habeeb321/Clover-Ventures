@@ -1,6 +1,7 @@
 import 'package:clover_ventures/crypto/crypto_bloc.dart';
 import 'package:clover_ventures/views/widgets/empty_data_widget.dart';
 import 'package:clover_ventures/views/widgets/loading_widget.dart';
+import 'package:clover_ventures/views/widgets/search_field_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -22,25 +23,7 @@ class HomeScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(
-                  height: 50,
-                  child: CupertinoSearchTextField(
-                    borderRadius: BorderRadius.zero,
-                    prefixIcon: const SizedBox(width: 0, height: 0),
-                    suffixMode: OverlayVisibilityMode.always,
-                    suffixInsets: const EdgeInsets.only(right: 10),
-                    suffixIcon: const Icon(
-                      CupertinoIcons.search,
-                      color: Colors.black,
-                    ),
-                    controller: searchController,
-                    onSuffixTap: () {
-                      context.read<CryptoBloc>().add(CryptoEventRequested(
-                          searchText: searchController.text.trim()));
-                      debugPrint('clicked ${searchController.text}');
-                    },
-                  ),
-                ),
+                SearchField(searchController: searchController),
                 BlocBuilder<CryptoBloc, CryptoState>(
                   builder: (context, state) {
                     if (state is CryptoStateLoading) {
@@ -197,10 +180,12 @@ class HomeScreen extends StatelessWidget {
                             collapsedIcon: const GFButton(
                               onPressed: null,
                               text: 'VIEW ORDER BOOK',
+                              icon: Icon(Icons.arrow_drop_down_outlined),
                             ),
                             expandedIcon: const GFButton(
                               onPressed: null,
                               text: 'HIDE ORDER BOOK',
+                              icon: Icon(Icons.arrow_drop_up_outlined),
                             ),
                             contentChild: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,

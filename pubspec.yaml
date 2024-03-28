@@ -38,6 +38,7 @@ dependencies:
   dio: ^5.4.1
   flutter_bloc: ^8.1.4
   expandable: ^5.0.1
+  getwidget: ^4.0.0
 
 dev_dependencies:
   flutter_test:

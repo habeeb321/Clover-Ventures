@@ -1,4 +1,4 @@
-import 'package:clover_ventures/logic/crypto/crypto_bloc.dart';
+import 'package:clover_ventures/crypto/crypto_bloc.dart';
 import 'package:clover_ventures/views/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
